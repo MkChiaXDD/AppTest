@@ -31,6 +31,7 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     super.initState();
     // wait 2 seconds, then navigate
+    //Big ass nigga
     Future.delayed(const Duration(seconds: 2), () {
       Navigator.pushReplacement(
         context,
