@@ -96,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => const SecondPage()),
+                  MaterialPageRoute(builder: (context) => const SettingsPage(title: "Settings")),
                 );
               },
               child: const Text("Go to Second Page"),
@@ -113,18 +113,25 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class SecondPage extends StatelessWidget {
-  const SecondPage({super.key});
+class SettingsPage extends StatefulWidget {
+  const SettingsPage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<SettingsPage> createState() => _SettingsPageState();
+}
+
+class _SettingsPageState extends State<SettingsPage> {
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Second Page")),
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
       body: const Center(
-        child: Text(
-          "Welcome to Page 2!",
-          style: TextStyle(fontSize: 24),
-        ),
+        child: Text("Settings Page"),
       ),
     );
   }
