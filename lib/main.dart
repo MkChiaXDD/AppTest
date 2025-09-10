@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Counter',
+      title: 'App',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
       ),
@@ -35,7 +35,7 @@ class _SplashPageState extends State<SplashPage> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const MyHomePage(title: 'Counter App'),
+          builder: (context) => const MyHomePage(title: 'App'),
         ),
       );
     });
@@ -96,15 +96,39 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+  bool _isOn = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context); // goes back to previous page
+          },
+        ),
         title: Text(widget.title),
       ),
-      body: const Center(
-        child: Text("Settings Page"),
+      body: Center(
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text (
+              "Toggle Button SFX",
+              style: TextStyle(fontSize: 16),
+            ),
+            const SizedBox(width: 10),
+            Switch(
+              value: _isOn,
+              onChanged: (bool value) {
+                setState(() {
+                  _isOn = value;
+                });
+              },
+            ),
+          ],
+        )
       ),
     );
   }
