@@ -35,7 +35,7 @@ class _SplashPageState extends State<SplashPage> {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => const MyHomePage(title: 'App'),
+          builder: (context) => const MyHomePage(title: 'Home Page'),
         ),
       );
     });
@@ -64,13 +64,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,9 +71,15 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: const Center(
-        child: Text("Home Page"),
-      ),
+      body: const Align(
+        alignment: Alignment.topCenter,
+          child: Padding(
+            padding: EdgeInsets.only(top: 200),
+            child: Text("  HomePage\u00A0\u00A0",
+              style: TextStyle(fontSize: 24, decoration: TextDecoration.underline,)
+        ),
+      )
+      )
     );
   }
 }
