@@ -133,3 +133,49 @@ class _SettingsPageState extends State<SettingsPage> {
   }
 }
 
+class ProfilePage extends StatefulWidget {
+  const ProfilePage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<ProfilePage> createState() => _ProfilePageState();
+}
+
+class _ProfilePageState extends State<ProfilePage> {
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.pop(context); // goes back to previous page
+          },
+        ),
+        title: Text(widget.title),
+      ),
+      body: Center(
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text (
+                "Streak : 0",
+                style: TextStyle(fontSize: 16),
+              ),
+              const Text (
+                "Points: 0",
+                style: TextStyle(fontSize: 16),
+              ),
+              const Text (
+                "Challenges Completed : 0",
+                style: TextStyle(fontSize: 16),
+              ),
+            ],
+          )
+      ),
+    );
+  }
+}
+
