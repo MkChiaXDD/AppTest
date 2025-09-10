@@ -64,22 +64,108 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
+    //Main Body
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: const Align(
+      body: Align(
         alignment: Alignment.topCenter,
-          child: Padding(
-            padding: EdgeInsets.only(top: 200),
-            child: Text("  HomePage\u00A0\u00A0",
-              style: TextStyle(fontSize: 24, decoration: TextDecoration.underline,)
+        child: Padding(
+          padding: const EdgeInsets.only(top: 200),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const Text(
+                "  HomePage\u00A0\u00A0",
+                style: TextStyle(
+                  fontSize: 24,
+                  decoration: TextDecoration.underline,
+                ),
+              ),
+              const SizedBox(height: 20), //Gap between buttons
+              //Tasks page button
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const TaskPage(),
+                    ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,       // button background color
+                  foregroundColor: Colors.white,      // text (and icon) color
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 50, vertical: 20),    // size of the button
+                  textStyle: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.bold), // text style
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),    // rounded corners
+                  ),
+                  elevation: 0,                       // shadow
+                ),
+                child: const Text("Tasks"),
+              )
+              ,SizedBox(height: 20), //Gap between buttons
+              //Profile Page Button
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ProfilePage(title: "Profile"),
+                    ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,       // button background color
+                  foregroundColor: Colors.white,      // text (and icon) color
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 50, vertical: 20),    // size of the button
+                  textStyle: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.bold), // text style
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),    // rounded corners
+                  ),
+                  elevation: 0,                       // shadow
+                ),
+                child: const Text("Profile"),
+              )
+              ,SizedBox(height: 20), //Gap between buttons
+
+              //Settings Page Button
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SettingsPage(title: "Settings"),
+                    ),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.black,       // button background color
+                  foregroundColor: Colors.white,      // text (and icon) color
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 40, vertical: 20),    // size of the button
+                  textStyle: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.bold), // text style
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(12),    // rounded corners
+                  ),
+                  elevation: 0,                       // shadow
+                ),
+                child: const Text("Settings"),
+              )
+              ,SizedBox(height: 20), //Gap between buttons
+            ],
+          ),
         ),
-      )
-      )
+      ),
     );
   }
 }
@@ -174,6 +260,25 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ],
           )
+      ),
+    );
+  }
+}
+
+class TaskPage extends StatelessWidget {
+  const TaskPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Tasks page placeholder"),
+      ),
+      body: const Center(
+        child: Text(
+          "This page is empty",
+          style: TextStyle(fontSize: 20, color: Colors.grey),
+        ),
       ),
     );
   }
