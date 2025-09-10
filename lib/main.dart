@@ -1,5 +1,12 @@
 import 'package:flutter/material.dart';
 
+
+final List<String> tasksList = [
+  "Task 1",
+  "Task 2",
+  "Task 3",
+];
+
 void main() {
   runApp(const MyApp());
 }
