@@ -6,7 +6,7 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-//lol
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,13 +26,11 @@ class SplashPage extends StatefulWidget {
   State<SplashPage> createState() => _SplashPageState();
 }
 
-// Penis
 class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
     // wait 2 seconds, then navigate
-    //Big ass nigga
     Future.delayed(const Duration(seconds: 2), () {
       Navigator.pushReplacement(
         context,
